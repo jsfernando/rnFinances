@@ -1,19 +1,27 @@
 import React from 'react';
-// import { View, Text, StyleSheet } from 'react-native';
-import { Container, Title } from './styles';
+// 1
+import { Text, View } from 'react-native';
+
+import { 
+    Container,
+    Header
+
+} from './styles';
 
 export function Dashboard(){
     return(
         <Container>
-            <Title>Dashboard</Title>
+            <Header>
+                {/* 1 pra visualizar que existe conteúdo */} 
+                {/* <Text>Senac Campinas</Text> */}
+                <Text>Imagem</Text>
+                <View>
+                    <Text>Olá,</Text>
+                    <Text>Senac</Text>
+                </View>
+            </Header>
+
         </Container>
     )
 }
 
-// const styles = StyleSheet.create({
-//     container: {
-//         flex: 1,
-//         justifyContent: 'center',
-//         alignItems: 'center'
-//     }
-// })

@@ -1,24 +1,25 @@
 import styled from 'styled-components/native';
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 
 export const Container = styled.View`
     flex:1;
-    justify-content: center;
-    align-items: center;
-    /**1 */
-    /* background-color:#999; */
-    /*2 theme */
-    /* background-color: ${(props) => props.theme.colors.background}; */
     background-color: ${( {theme} ) => theme.colors.background}; */
 
 `;
-// PPI pixel per inch, ou pixel por polegada
-// Densidade de Pixel é o número total de pixels que existe dentro de uma
-// área física da tela
-// cada tela de celular tem uma densidade de pixel diferente
-export const Title = styled.Text`
-    font-family: ${( {theme} ) => theme.fonts.bold};
-    font-size: 24px;
-    /* font-weight: bold; */
-    /* color: purple; */
-    color: ${( { theme }) => theme.colors.title}
+ 
+export const Header = styled.View`
+    width: 100%;
+    /* height: 278px; */
+    /* biblioteca pra trabalhar com proporções */
+    /* https://www.npmjs.com/package/react-native-responsive-fontsize */
+    /* npm install react-native-responsive-fontsize --save */
+    /* height: ${RFPercentage(42)}; sem o px e depois com px */
+    height: ${RFPercentage(42)}px;
+
+
+    background-color: ${({ theme }) => theme.colors.primary};
+
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
 `;
