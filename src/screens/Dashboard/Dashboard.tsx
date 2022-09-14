@@ -1,26 +1,40 @@
 import React from 'react';
-// 1
-import { Text, View } from 'react-native';
+// biblioteca de icones que já vem no expo
+// https://icons.expo.fyi
+// Incluindo o ícon de desligar no tsx e depois incluir no styled components
+// import { Feather } from '@expo/vector-icons';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 import { 
     Container,
-    Header
-
+    Header,
+    UserWrapper,
+    UserInfo,
+    Photo,
+    User,
+    UserGreething,
+    UserName,
+    Icon,
 } from './styles';
 
 export function Dashboard(){
     return(
         <Container>
             <Header>
-                {/* 1 pra visualizar que existe conteúdo */} 
-                {/* <Text>Senac Campinas</Text> */}
-                <Text>Imagem</Text>
-                <View>
-                    <Text>Olá,</Text>
-                    <Text>Senac</Text>
-                </View>
+                <UserWrapper>
+                    <UserInfo>
+                        <Photo 
+                            source={ {uri: 'https://avatars.githubusercontent.com/u/3800865?v=4'} }
+                        />
+                        <User>
+                            <UserGreething>Olá,</UserGreething>
+                            <UserName>Fernando</UserName>
+                        </User>
+                    </UserInfo>
+                    {/* <Feather name="power" size={RFValue(24)} color="#fff"/> */}
+                    <Icon name="power" />
+                </UserWrapper>
             </Header>
-
         </Container>
     )
 }
