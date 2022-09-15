@@ -2,6 +2,7 @@ import React from 'react';
 
 import {
   Container,
+  //2 components do cartão
   Header,
   Title,
   Icon,

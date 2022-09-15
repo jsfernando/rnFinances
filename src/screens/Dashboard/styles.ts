@@ -22,9 +22,7 @@ export const Header = styled.View`
 
 export const UserWrapper = styled.View`
     width:100%
-    /* background-color:red; */
     padding: 0 24px;
-    /* por ultimo ...alinhando o ícone */
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -32,9 +30,6 @@ export const UserWrapper = styled.View`
 export const UserInfo = styled.View`
     flex-direction: row;
     align-items: center;
-
-    /* usar a largura toda */
-    /* background-color: red; */
 `;
 
 export const Photo = styled.Image`
@@ -65,3 +60,14 @@ export const Icon = styled(Feather)`
     font-size: ${RFValue(24)}px;
 
 `;
+
+//7
+// export const HighlightCards = styled.ScrollView`
+// `;
+
+//7.1
+export const HighlightCards = styled.ScrollView.attrs({
+    horizontal: true,
+    showHorizontalScrollIndicator: false,
+    contentContainerStyle: {paddingHorizontal: 24} /** espaçamento antes da lista */
+})``;

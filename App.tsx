@@ -19,11 +19,6 @@ export default function App() {
     Poppins_500Medium,
     Poppins_700Bold
   })
-  // a função do splash screen é pra fazer o papel de loading
-  // para carregar as fontes para o celular do usuário
-  // https://docs.expo.dev/versions/latest/sdk/splash-screen/
-  // usado no lugar do expo-app-loading que já foi depreciado
-  // https://docs.expo.dev/versions/latest/sdk/app-loading/
   if(!fontsLoaded){
     return null;
   } 

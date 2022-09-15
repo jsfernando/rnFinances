@@ -1,9 +1,5 @@
 import React from 'react';
-// biblioteca de icones que já vem no expo
-// https://icons.expo.fyi
-// Incluindo o ícon de desligar no tsx e depois incluir no styled components
-// import { Feather } from '@expo/vector-icons';
-import { RFValue } from 'react-native-responsive-fontsize';
+import { HighlightCard } from '../../components/HighlightCard';
 
 import { 
     Container,
@@ -15,6 +11,8 @@ import {
     UserGreething,
     UserName,
     Icon,
+    HighlightCards
+
 } from './styles';
 
 export function Dashboard(){
@@ -31,10 +29,18 @@ export function Dashboard(){
                             <UserName>Fernando</UserName>
                         </User>
                     </UserInfo>
-                    {/* <Feather name="power" size={RFValue(24)} color="#fff"/> */}
                     <Icon name="power" />
                 </UserWrapper>
             </Header>
+            <HighlightCards
+                // horizontal 7.0
+                // showHorizontalScrollIndicator={false}
+                // contentContainerStyle={{paddingHorizontal: 24}}
+            >
+                <HighlightCard type='up' title='Entradas' amount='R$ 17.400,00' lastTransaction='Última entrada dia 13 de abril'/>
+                <HighlightCard type='down' title='Saídas' amount='R$ 1.259,00' lastTransaction='Última saída dia 03 de abril'/>
+                <HighlightCard type='up' title='Total' amount='R$ 17.400,00' lastTransaction='Última entrada dia 13 de abril'/>
+            </HighlightCards>
         </Container>
     )
 }
