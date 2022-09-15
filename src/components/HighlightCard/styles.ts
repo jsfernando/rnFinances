@@ -6,7 +6,6 @@ interface TypeProps {
   type: 'up' | 'down' | 'total';
 }
 export const Container = styled.View<TypeProps>`
-/* 3 */
   background-color: ${({ theme }) => theme.colors.shape};
 
   /* background-color: ${({ theme, type }) =>
@@ -17,9 +16,8 @@ export const Container = styled.View<TypeProps>`
 
   padding: 19px 23px;
   padding-bottom: ${RFValue(42)}px;
-  margin-right: 16px; /* espaçamento entre os cartões, mostrar depois */
+  margin-right: 16px; 
 
-  /* retirar depois a altura */
 `;
 
 export const Header = styled.View`

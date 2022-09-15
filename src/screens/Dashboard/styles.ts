@@ -7,7 +7,6 @@ export const Container = styled.View`
     background-color: ${( {theme} ) => theme.colors.background}; 
 
 `;
-//1 colando a foto no topo
 export const Header = styled.View`
     width: 100%;
     height: ${RFPercentage(42)}px;
@@ -16,7 +15,6 @@ export const Header = styled.View`
     background-color: ${({ theme }) => theme.colors.primary};
 
     justify-content: center;
-    /* //mudamos aqui 2 */
     align-items: flex-start;
     flex-direction: row;
 `;
@@ -25,7 +23,6 @@ export const Header = styled.View`
 export const UserWrapper = styled.View`
     width:100%
     padding: 0 24px;
-    /* // espaçamento para o Android */
     margin-top:${RFValue(58)}px;
 
     flex-direction: row;
@@ -72,15 +69,12 @@ export const Icon = styled(Feather)`
     font-size: ${RFValue(24)}px;
 
 `;
-// 3
 export const HighlightCards = styled.ScrollView.attrs({
     horizontal: true,
-    // corrigido shows
     showsHorizontalScrollIndicator: false,
     contentContainerStyle: {paddingHorizontal: 24} 
 })`
     width: 100% ;
-    /* subiu a lista de carões */
     position: absolute;
     margin-top: ${RFPercentage(20)}px;
 `;
