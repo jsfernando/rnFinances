@@ -1,13 +1,13 @@
 import styled from 'styled-components/native';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { Feather } from '@expo/vector-icons';
-
+// import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 export const Container = styled.View`
     flex:1;
     background-color: ${( {theme} ) => theme.colors.background}; 
 
 `;
- 
+//1 colando a foto no topo
 export const Header = styled.View`
     width: 100%;
     height: ${RFPercentage(42)}px;
@@ -16,17 +16,29 @@ export const Header = styled.View`
     background-color: ${({ theme }) => theme.colors.primary};
 
     justify-content: center;
-    align-items: center;
+    /* //mudamos aqui 2 */
+    align-items: flex-start;
     flex-direction: row;
 `;
 
+// margin-top: ${getStatusBarHeight() + RFValue(28)}px 
 export const UserWrapper = styled.View`
     width:100%
     padding: 0 24px;
+    /* // espaçamento para o Android */
+    margin-top:${RFValue(58)}px;
+
     flex-direction: row;
     justify-content: space-between;
+    /* //somente para iphone a biblioteca */
+    /* //react-native-iphone-x-helper, para cuidar do espaçamento no topo */
+    /* npm i react-native-iphone-x-helper --save */
     align-items: center;
+    /* // iphone */
+    /* // margin-top da lin 23 */
 `;
+
+
 export const UserInfo = styled.View`
     flex-direction: row;
     align-items: center;
@@ -60,14 +72,15 @@ export const Icon = styled(Feather)`
     font-size: ${RFValue(24)}px;
 
 `;
-
-//7
-// export const HighlightCards = styled.ScrollView`
-// `;
-
-//7.1
+// 3
 export const HighlightCards = styled.ScrollView.attrs({
     horizontal: true,
-    showHorizontalScrollIndicator: false,
-    contentContainerStyle: {paddingHorizontal: 24} /** espaçamento antes da lista */
-})``;
+    // corrigido shows
+    showsHorizontalScrollIndicator: false,
+    contentContainerStyle: {paddingHorizontal: 24} 
+})`
+    width: 100% ;
+    /* subiu a lista de carões */
+    position: absolute;
+    margin-top: ${RFPercentage(20)}px;
+`;
