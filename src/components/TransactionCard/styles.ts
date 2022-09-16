@@ -11,7 +11,6 @@ export const Container = styled.View`
   border-radius: 5px;
   /* medir os espaçamentos no figma */
   padding: 17px 24px;
-  margin-bottom: 16px;
 `;
 
 export const Title = styled.Text`
