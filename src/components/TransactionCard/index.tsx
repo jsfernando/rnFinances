@@ -1,7 +1,6 @@
 import React from 'react';
-
-import { categories } from '../../utils/categories';
-
+// 4
+// 5 criar o styles.ts
 import {
   Container,
   Title,
@@ -24,33 +23,29 @@ export interface TransactionCardProps {
 interface Props {
   data: TransactionCardProps;
 }
-
-export function TransactionCard({ data } : Props){
-  const [ category ] = categories.filter(
-    item => item.key === data.category
-  );
+// 3
+export function TransactionCard(){
 
   return (
     <Container>
       <Title>
-        {data.name}
+        Desenvolvimento de Sites
       </Title>
 
-      <Amount type={data.type}>
-        { data.type === 'negative' && '- ' }
-        { data.amount }
+      <Amount >
+        R$ 12.000,00
       </Amount>
 
       <Footer>
         <Category>
-          <Icon name= {category.icon} />
+          <Icon name='dollar-sign' />
           <CategoryName>
-            {category.name}
+            Vendas
           </CategoryName>
         </Category>
 
         <Date>
-          {data.date}
+          13/04/2020
         </Date>
       </Footer>
     </Container>

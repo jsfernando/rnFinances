@@ -78,3 +78,23 @@ export const HighlightCards = styled.ScrollView.attrs({
     position: absolute;
     margin-top: ${RFPercentage(20)}px;
 `;
+
+//2
+export const Transactions = styled.View`
+  flex: 1%;
+  /* 3 */
+  /* background:red; */
+  padding: 0 24px;
+
+  /* //5 */
+  margin-top: ${RFPercentage(12)}px;
+`;
+
+export const Title = styled.Text`
+    /* 4, verificar o tamanho e a font no figma */
+    font-size: ${RFValue(18)}px;
+    font-family: ${({ theme }) => theme.fonts.regular};
+
+    margin-bottom: 16px;
+`;
+
