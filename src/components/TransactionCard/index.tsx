@@ -1,6 +1,5 @@
 import React from 'react';
-// 4
-// 5 criar o styles.ts
+
 import {
   Container,
   Title,
@@ -12,40 +11,60 @@ import {
   Date,
 } from './styles';
 
+//1
+// type: 'positive' | 'negative';
 export interface TransactionCardProps {
-  type: 'positive' | 'negative';
-  name: string;
+  title: string;
   amount: string;
-  category: string;
+  category: Category;
   date: string;
 }
-
+// 2 
+export interface Category{
+  name: string,
+  icon: string,
+}
+//5
 interface Props {
   data: TransactionCardProps;
 }
-// 3
-export function TransactionCard(){
+//3
+// export function TransactionCard({
+//   title,
+//   amount,
+//   category,
+//   date
+// }: TransactionCardProps
+// ){
+  //5
+export function TransactionCard({data}: Props){
 
   return (
     <Container>
       <Title>
-        Desenvolvimento de Sites
+        {/* 3 */}
+        {/* {title} */}
+        {/* 5 data. */}
+        {data.title}
       </Title>
 
       <Amount >
-        R$ 12.000,00
+        {/* {amount} */}
+        {data.amount}
       </Amount>
 
       <Footer>
         <Category>
           <Icon name='dollar-sign' />
           <CategoryName>
-            Vendas
+            {/* {category.name} */}
+            {data.category.name}
           </CategoryName>
         </Category>
 
         <Date>
-          13/04/2020
+          {/* {date} */}
+          {data.date}
         </Date>
       </Footer>
     </Container>
