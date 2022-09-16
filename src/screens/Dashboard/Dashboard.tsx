@@ -15,19 +15,43 @@ import {
     HighlightCards,
     Transactions,
     Title,
+    TransactionList,
 
 } from './styles';
 
 export function Dashboard(){
-    const data = {
-        title:'Desenvolvimento de sites',
-        amount:'R$ 12.000,00',
-        category: {
-            name:'Vendas',
-            icon:'dollar-sign'
+    // converter para array
+    const data = [
+        {
+            title:'Desenvolvimento de sites',
+            amount:'R$ 12.000,00',
+            category: {
+                name:'Vendas',
+                icon:'dollar-sign'
+            },
+            date:'13/10/2020'
         },
-        date:'13/10/2020'
-    };
+        {
+            title:'Desenvolvimento de sites',
+            amount:'R$ 12.000,00',
+            category: {
+                name:'Vendas',
+                icon:'dollar-sign'
+            },
+            date:'13/10/2020'
+        },
+        {
+            title:'Desenvolvimento de sites',
+            amount:'R$ 12.000,00',
+            category: {
+                name:'Vendas',
+                icon:'dollar-sign'
+            },
+            date:'13/10/2020'
+        }
+
+
+];
 
     return(
         <Container>
@@ -67,27 +91,16 @@ export function Dashboard(){
                     lastTransaction='Última entrada dia 13 de abril'
                 />
             </HighlightCards>
-            {/* 1 */}
             <Transactions>
-            <Title>Listagem</Title>
-            {/* 2 criar o component */}
-            <TransactionCard 
-                data = {data}
-                // 4
-                // title='Desenvolvimento de sites'
-                // amount='R$ 12.000,00'
-                // category={{
-                //     name:'Vendas',
-                //     icon:'dollar-sign'
-                // }}
-                // date="13/10/2020"
-            />
-            {/* <TransactionList
-              data={transactions}
-              keyExtractor={item => item.id}
-              renderItem={({ item }) => <TransactionCard data={item} />}
-            /> */}
-          </Transactions>
+                <Title>Listagem</Title>
+                {/* <TransactionCard 
+                    data = {data[0]}
+                /> */}
+                <TransactionList
+                    data={data}
+                    renderItem={({ item }) => <TransactionCard data={item} />}
+                />
+            </Transactions>
 
         </Container>
     )

@@ -11,6 +11,7 @@ export const Container = styled.View`
   border-radius: 5px;
   /* medir os espaçamentos no figma */
   padding: 17px 24px;
+  // margin do cartão da listagem de transação
   margin-bottom: 16px;
 `;
 
@@ -19,7 +20,7 @@ export const Title = styled.Text`
   font-size: ${RFValue(14)}px;
 `;
 
-// 9
+// 
 // export const Amount = styled.Text<TransactionProps>`
 //   font-family: ${({ theme }) => theme.fonts.regular};
 //   font-size: ${RFValue(20)}px;

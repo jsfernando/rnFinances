@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { Feather } from '@expo/vector-icons';
 // import { getStatusBarHeight } from 'react-native-iphone-x-helper'
+/* npm i react-native-iphone-x-helper --save */
 export const Container = styled.View`
     flex:1;
     background-color: ${( {theme} ) => theme.colors.background}; 
@@ -19,7 +20,6 @@ export const Header = styled.View`
     flex-direction: row;
 `;
 
-// margin-top: ${getStatusBarHeight() + RFValue(28)}px 
 export const UserWrapper = styled.View`
     width:100%
     padding: 0 24px;
@@ -27,12 +27,7 @@ export const UserWrapper = styled.View`
 
     flex-direction: row;
     justify-content: space-between;
-    /* //somente para iphone a biblioteca */
-    /* //react-native-iphone-x-helper, para cuidar do espaçamento no topo */
-    /* npm i react-native-iphone-x-helper --save */
     align-items: center;
-    /* // iphone */
-    /* // margin-top da lin 23 */
 `;
 
 
@@ -79,22 +74,36 @@ export const HighlightCards = styled.ScrollView.attrs({
     margin-top: ${RFPercentage(20)}px;
 `;
 
-//2
 export const Transactions = styled.View`
   flex: 1%;
-  /* 3 */
-  /* background:red; */
   padding: 0 24px;
 
-  /* //5 */
   margin-top: ${RFPercentage(12)}px;
 `;
 
 export const Title = styled.Text`
-    /* 4, verificar o tamanho e a font no figma */
     font-size: ${RFValue(18)}px;
     font-family: ${({ theme }) => theme.fonts.regular};
 
     margin-bottom: 16px;
 `;
 
+export const TransactionList = styled.FlatList.attrs({
+    showsVerticalScrollIndicator: false,
+    // somente para iphone
+//     contentContainerStyle: {
+//       paddingBottom: getBottomSpace()
+//     }
+})``;
+
+// styles component TransactionCard margin-bottom do container lin15
+
+// export const TransactionList = styled(
+//     FlatList as new () => FlatList<DataListProps>
+//     ).attrs({
+//     showsVerticalScrollIndicator: false,
+//     contentContainerStyle: {
+//       paddingBottom: getBottomSpace()
+//     }
+//   })``;
+  
