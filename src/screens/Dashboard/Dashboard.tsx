@@ -1,6 +1,6 @@
 import React from 'react';
 import { HighlightCard } from '../../components/HighlightCard';
-import { TransactionCard } from '../../components/TransactionCard';
+import { TransactionCard, TransactionCardProps } from '../../components/TransactionCard';
 
 import { 
     Container,
@@ -18,11 +18,24 @@ import {
     TransactionList,
 
 } from './styles';
+//9 e import lin3
+//10 no styles importar
+export interface DataListProps extends TransactionCardProps{
+    id: string;
+}
 
 export function Dashboard(){
+    // 10 exemplo do extends
+    // const test : DataListProps;
+    // test.id
+
+    // 0
     // converter para array
-    const data = [
+    // 6 colocar id no array
+    const data:DataListProps[]  = [
         {
+            id: '1',
+            type: 'positive',
             title:'Desenvolvimento de sites',
             amount:'R$ 12.000,00',
             category: {
@@ -32,22 +45,26 @@ export function Dashboard(){
             date:'13/10/2020'
         },
         {
-            title:'Desenvolvimento de sites',
-            amount:'R$ 12.000,00',
+            id: '2',
+            type: 'negative',
+            title:'Hamburgueria Pizzy',
+            amount:'R$ 59,00',
             category: {
-                name:'Vendas',
-                icon:'dollar-sign'
+                name:'Alimentação',
+                icon:'coffee'
             },
-            date:'13/10/2020'
+            date:'10/04/2020'
         },
         {
-            title:'Desenvolvimento de sites',
-            amount:'R$ 12.000,00',
+            id: '3',
+            type: 'negative',
+            title:'Aluguel do apartamento',
+            amount:'R$ 1.200,00',
             category: {
-                name:'Vendas',
-                icon:'dollar-sign'
+                name:'Casa',
+                icon:'shopping-bag'
             },
-            date:'13/10/2020'
+            date:'27/03/2020'
         }
 
 
@@ -96,8 +113,12 @@ export function Dashboard(){
                 {/* <TransactionCard 
                     data = {data[0]}
                 /> */}
+
                 <TransactionList
+                    // colocar o mouse em cima do data
                     data={data}
+                    //7
+                    keyExtractor={item => item.id}
                     renderItem={({ item }) => <TransactionCard data={item} />}
                 />
             </Transactions>

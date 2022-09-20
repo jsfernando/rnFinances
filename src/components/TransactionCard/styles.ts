@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 import { Feather } from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
 
+// 3
 interface TransactionProps {
   type: 'positive' | 'negative';
 }
@@ -9,9 +10,8 @@ interface TransactionProps {
 export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.shape};
   border-radius: 5px;
-  /* medir os espaçamentos no figma */
+
   padding: 17px 24px;
-  // margin do cartão da listagem de transação
   margin-bottom: 16px;
 `;
 
@@ -20,20 +20,21 @@ export const Title = styled.Text`
   font-size: ${RFValue(14)}px;
 `;
 
-// 
-// export const Amount = styled.Text<TransactionProps>`
-//   font-family: ${({ theme }) => theme.fonts.regular};
-//   font-size: ${RFValue(20)}px;
-//   color: ${({ theme, type }) =>
-//   type === 'positive' ? theme.colors.success : theme.colors.attention};
-
-//   margin-top: 2px;
-// `;
-export const Amount = styled.Text`
+// 4 tipar com TransactionProps
+export const Amount = styled.Text<TransactionProps>`
   font-family: ${({ theme }) => theme.fonts.regular};
   font-size: ${RFValue(20)}px;
+  color: ${({ theme, type }) =>
+  type === 'positive' ? theme.colors.success : theme.colors.attention};
+
   margin-top: 2px;
 `;
+
+// export const Amount = styled.Text`
+//   font-family: ${({ theme }) => theme.fonts.regular};
+//   font-size: ${RFValue(20)}px;
+//   margin-top: 2px;
+// `;
 
 export const Footer = styled.View`
   flex-direction: row;
@@ -56,7 +57,7 @@ export const Icon = styled(Feather)`
 export const CategoryName = styled.Text`
   font-size: ${RFValue(14)}px;
   color: ${({ theme }) => theme.colors.text};
-  /* checar espacamento no figma */
+
   margin-left: 17px;
 `;
 

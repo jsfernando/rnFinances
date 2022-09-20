@@ -10,9 +10,10 @@ import {
   CategoryName,
   Date,
 } from './styles';
-
-// type: 'positive' | 'negative';
+//8 exportando a interface para usar o id
 export interface TransactionCardProps {
+  // 1
+  type: 'positive' | 'negative';
   title: string;
   amount: string;
   category: Category;
@@ -32,14 +33,15 @@ export function TransactionCard({data}: Props){
       <Title>
         {data.title}
       </Title>
-
-      <Amount >
-        {data.amount}
+      {/* 2,5 */}
+      <Amount type={data.type}>
+        { data.type === 'negative' && '- '} 
+        { data.amount }
       </Amount>
 
       <Footer>
         <Category>
-          <Icon name='dollar-sign' />
+          <Icon name={data.category.icon} />
           <CategoryName>
             {data.category.name}
           </CategoryName>
