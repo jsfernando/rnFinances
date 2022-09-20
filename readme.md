@@ -12,3 +12,15 @@
 
 ## 7
 # Estilizar o espaçamento dos inputs através de um Form envolvendo os dois inputs Nome e Preço
+
+## 8 
+# criar o component Button e style
+# tipo do component TouchableOpacity fazendo igual ao input declarando ...rest e tbém no styles
+
+## 9 
+# importando o compoment button no Register
+# e depois estilizar Button title enviar
+
+## 10 
+# criando um elemento Fields pra envolver os inputs, pois o botão é lá embaixo, assim consigo empurrar o botão
+# este elemento Fields é criado no style do component Register e estilizaçao se da no Form com justity-content: space-between
