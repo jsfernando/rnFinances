@@ -64,3 +64,32 @@
 # importar o css pra mudar a cor
 # trabalhar com border-width para tirar a borda quando clicar no botão
 # trabalhar com ${({ isActive, type }) para mudar a cor do background
+
+## 19
+# Correção styles register, espaçamento
+export const TransactionsTypes = styled.View`
+# lin 37,38 - top para os botoes income e outcome e bottom para o select categorias
+
+## 20
+# criando o component CategorySelect
+
+## 21
+# copiando arquivo categories.ts e colocando na pasta util
+# nesta aula vamos criar o modal para escolher as categorias
+# començando o estilo da screens/CategorySelect
+# Para acompanhar a construação da modal, trocar no App.tsx
+# Trocar o Registre por CategorySelect
+      <Register />
+      <CategorySelect />
+## 22
+# agora volta para o styles.ts para fazer o layout
+# incluir uma flatlist após estilizar Container, Header e title
+# depois de criado a Flatlist, incluir os components Category, Icon, Name
+# depois de arrumar o estilo     Category,    Icon,    Name com os tipos, as categories do Flatlist já aparecem em tela...
+# agora estilizar ...Category, Icon e Name
+
+## 23 estilizar o separator e incluí-lo na Flatlist
+ItemSeparatorComponent={() => <Separator />
+
+## 24 estilizar mais 3 components Footer
+# incluido o component Button
