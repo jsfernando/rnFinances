@@ -93,3 +93,36 @@ ItemSeparatorComponent={() => <Separator />
 
 ## 24 estilizar mais 3 components Footer
 # incluido o component Button
+
+## 25 voltar o register no app.tsx
+## 26 refatorando o nome do component CategorySelect para CategorySelectButton
+
+## 27 incluindo a screen/CategorySelect no Register dentro da Modal
+# criando um estado para Modal começar visible=false
+            <Modal visible={categoryModalOpen}>
+# CategorySelect tem 3 props pra passar            
+# criando uma função 
+handleCloseSelectCategory
+
+## 28 no CategorySelect
+interface Props{
+    category: Category;
+
+## 29 criando funções no Register para clicar no Botao do Modal para abrir e fechar
+
+## 30 no CategorySelectButton onPress no Register
+## 31 no components/form/CategorySelectBytton, incluir onPress no props
+
+## 32 atualizar se necessário o container/botão selecionar da modal
+
+## capturar o valor do modal
+## 33 screen/CategorySelect/index.tsx <Category onPress>
+no styles.ts
+trocar o Category = styled.View` por TouchableOpacity:
+export const Category = styled.TouchableOpacity
+# isActive pra saber se é a categoria selecionada 
+Interface CategoryProps no styles.ts
+
+# no register, CategorySelectButton trocar o title por category.name
+# funcionando...
+
