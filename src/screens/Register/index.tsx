@@ -38,7 +38,7 @@ export function Register() {
 
     const {
         control,
-        handleSubmit,
+        handleSubmit
     } = useForm();
 
     function handleOpenSelectCategoryModal(){
@@ -52,7 +52,7 @@ export function Register() {
         setTransactionType(type)
     }
 
-    function handleRegister(form: FormData){
+    function handleRegister(form: FormData) {
         const data ={
             name: form.name,
             amount: form.amount,
@@ -62,19 +62,6 @@ export function Register() {
         console.log(data)
     }
 
-    // function handleRegister(){
-    //     const data ={
-    //         name,
-    //         amount,
-    //         transactionType,
-    //         category: category.key
-    //     }
-    //     console.log(data)
-    // }
-
-    // function handleInputChange(text: string){
-    //     console.log(text)
-    // }
 
     return (
         <Container>
@@ -87,13 +74,11 @@ export function Register() {
                         name="name"
                         control={control}
                         placeholder="Nome" 
-                        // onChangeText={text =>handleInputChange(text) }
                     />
                     <InputForm 
                         name="amount"
                         control={control}
                         placeholder="Preço" 
-                        // onChangeText={setAmount}
                     />
                     <TransactionsTypes>
                         <TransactionTypeButton 
@@ -117,7 +102,6 @@ export function Register() {
                 
                 <Button 
                     title="Enviar"
-                    // onPress={handleRegister}
                     onPress={handleSubmit(handleRegister)}
                 />
             </Form>
