@@ -42,9 +42,9 @@ export const Category = styled.TouchableOpacity<CategoryProps>`
     
     flex-direction: row;
     align-items: center;
-    //33
+    background-color: ${({ isActive, theme }) => 
+     isActive ? theme.colors.secondary_light : theme.colors.background};        
 `;
-/* background-color: ${({ isActive }) => isActive ? theme.colors.secondary_light : theme.colors.background} */
 
 export const Icon = styled(Feather)`
     font-size: ${RFValue(20)}px;
