@@ -7,8 +7,9 @@ export const Container = styled.View`
     /**1 */
     /* background-color:#999; */
     /*2 theme */
-    /* background-color: ${(props) => props.theme.colors.background}; */
-    background-color: ${( {theme} ) => theme.colors.background}; */
+    /* background-color: ${(props) => props.theme.colors.primary}; */
+
+    background-color: ${( {theme} ) => theme.colors.background}; 
 
 `;
 // PPI pixel per inch, ou pixel por polegada
