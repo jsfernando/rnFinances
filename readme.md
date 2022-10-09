@@ -1,41 +1,46 @@
-## 1 começando com https://react-hook-form.com
-# poderiamos criar dois estados name e amount
-    onChangeText={text => setName(text)}
-    ou 
-    onChangeText={setName}
-    function handleRegister(){
-        const data ={
-            name,
-            amount,
-            transactionType,
-            category: category.key
-        }
-        console.log(data)
-    }
-    function handleInputChange(text: string){
-        console.log(text)
-    }
-# ^para demonstrar que é possível usar o estado, mas que a cada mudança do input a tela é renderizada novamente, não compensa quando há muitos inputs, pode ocasionar problema de performance
+## 1 Instalação do Yup e validação dos campos do Form
+### inputName    autoCapitalize='sentences' 
+###        autoCorrect={false}
+###        keyboardType='numeric' 
 
-### install yarn add react-hook-form
-## controler https://react-hook-form.com/get-started#ReactNative
+## Validação
+### TouchableWithoutFeedback - ele aceita um único filho, por isso envolver o container
+###  <TouchableWithoutFeedback onPress={Keyboard.dismiss}> fechar o teclado
+###
+###    function handleRegister(form: FormData) {
+### Alert para transactionType e category.key
 
-## 2 Criar um input Controlado conforme documentação do react-hook-form para que ao preencher o input só renderize os valores do component quando for enviado pelo botão (Enviar)
+## validar inptus
+### https://react-hook-form.com/get-started#SchemaValidation
+### npm install @hookform/resolvers yup
+### import * as Yup from 'yup';
+### import { yupResolver }  from '@hookform/resolvers/yup'
 
-## Criado um component InputForm extendendo as propriedades do TextInputProps
-## depois de configurado, vai ser usado no Register
-### import useForm do react-hook-form
-### import inputForm
-### trocar os inputs por inputForm e passar as propriedade
     const {
         control,
-        handleSubmit,
-    } = useForm();
-                <Button 
-                    title="Enviar"
-                    onPress={handleSubmit(handleRegister)}
-                />
+        handleSubmit
+    } = useForm({
+        resolver: yupResolver()
+    });
+### o que o resolver vai fazer é forçar que o nosso submit do do formulário, siga um padrão e pra seguir esse padrão é necessário criar um schema
+## Criando um schema
+### const schema = Yup.object().shape({
+### depois passo o schema para o resolver
+###        resolver: yupResolver(schema)
+### acrescentar no Component inputForm 
+### mudar o amount para numeric na interface FormData
 
-    function handleRegister(form){
-        console.log(form)
-    }
+# Solução para o campo amount(númerico) para o iPhone
+É só adicionar :
+.transform((_value, originalValue) => Number(originalValue.replace(/,/, '.')))
+
+assim:
+
+amount: Yup
+    .number()
+    .transform((_value, originalValue) => Number(originalValue.replace(/,/, '.')))
+    .typeError('Informe um valor numérico')
+    .positive('O valor não pode ser negativo')
+    .required('O valor é obrigatório')
+
+    
