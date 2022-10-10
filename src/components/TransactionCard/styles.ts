@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 import { Feather } from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
 
+// 3
 interface TransactionProps {
   type: 'positive' | 'negative';
 }
@@ -19,6 +20,7 @@ export const Title = styled.Text`
   font-size: ${RFValue(14)}px;
 `;
 
+// 4 tipar com TransactionProps
 export const Amount = styled.Text<TransactionProps>`
   font-family: ${({ theme }) => theme.fonts.regular};
   font-size: ${RFValue(20)}px;
@@ -27,6 +29,12 @@ export const Amount = styled.Text<TransactionProps>`
 
   margin-top: 2px;
 `;
+
+// export const Amount = styled.Text`
+//   font-family: ${({ theme }) => theme.fonts.regular};
+//   font-size: ${RFValue(20)}px;
+//   margin-top: 2px;
+// `;
 
 export const Footer = styled.View`
   flex-direction: row;

@@ -5,17 +5,18 @@ import { Feather } from '@expo/vector-icons';
 interface TypeProps {
   type: 'up' | 'down' | 'total';
 }
-
 export const Container = styled.View<TypeProps>`
+
   background-color: ${({ theme, type }) =>
-  type === 'total' ? theme.colors.secondary :  theme.colors.shape};
+  type === 'total' ? theme.colors.secondary :  theme.colors.shape}; 
 
   width: ${RFValue(300)}px;
   border-radius: 5px;
 
   padding: 19px 23px;
   padding-bottom: ${RFValue(42)}px;
-  margin-right: 16px;
+  margin-right: 16px; 
+
 `;
 
 export const Header = styled.View`
@@ -33,6 +34,8 @@ export const Title = styled.Text<TypeProps>`
 
 export const Icon = styled(Feather)<TypeProps>`
   font-size: ${RFValue(40)}px;
+
+  color: ${({ theme }) => theme.colors.text_dark};
 
   ${({ type }) => type === 'up' && css`
     color: ${({ theme }) => theme.colors.success};
@@ -58,7 +61,6 @@ export const Amount = styled.Text<TypeProps>`
 
   margin-top: 38px;
 `;
-
 export const LastTransaction = styled.Text<TypeProps>`
   font-family: ${({ theme }) => theme.fonts.regular};
   font-size: ${RFValue(12)}px;
@@ -66,3 +68,4 @@ export const LastTransaction = styled.Text<TypeProps>`
   color: ${({ theme, type }) =>
   type === 'total' ? theme.colors.shape :  theme.colors.text};
 `;
+
