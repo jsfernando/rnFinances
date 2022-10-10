@@ -8,12 +8,12 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import { 
     Container,
     Header,
-    UserWrapper,
-    UserInfo,
-    Photo,
-    User,
-    UserGreething,
-    UserName,
+    UserWrapper, //7
+    UserInfo, //1
+    Photo, //2
+    User, //3
+    UserGreething, //4
+    UserName, //5
     Icon,
 } from './styles';
 
