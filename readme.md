@@ -1,46 +1,40 @@
-## 1 Instalação do Yup e validação dos campos do Form
-### inputName    autoCapitalize='sentences' 
-###        autoCorrect={false}
-###        keyboardType='numeric' 
+# Navegação, Tab Navigation
+## https://reactnavigation.org/docs/getting-started
+## https://reactnavigation.org/docs/getting-started#installation
+### npm install @react-navigation/native
+# dependências do expo
+## https://reactnavigation.org/docs/getting-started#installing-dependencies-into-an-expo-managed-project
+### expo install react-native-screens react-native-safe-area-context
 
-## Validação
-### TouchableWithoutFeedback - ele aceita um único filho, por isso envolver o container
-###  <TouchableWithoutFeedback onPress={Keyboard.dismiss}> fechar o teclado
-###
-###    function handleRegister(form: FormData) {
-### Alert para transactionType e category.key
+# aqui exemplos da estratégia de navegação
+### https://reactnavigation.org/docs/getting-started#wrapping-your-app-in-navigationcontainer
 
-## validar inptus
-### https://react-hook-form.com/get-started#SchemaValidation
-### npm install @hookform/resolvers yup
-### import * as Yup from 'yup';
-### import { yupResolver }  from '@hookform/resolvers/yup'
+# Agora instalar a nossa estratégia de navegação
+## https://reactnavigation.org/docs/tab-based-navigation
+### npm install @react-navigation/bottom-tabs
 
-    const {
-        control,
-        handleSubmit
-    } = useForm({
-        resolver: yupResolver()
-    });
-### o que o resolver vai fazer é forçar que o nosso submit do do formulário, siga um padrão e pra seguir esse padrão é necessário criar um schema
-## Criando um schema
-### const schema = Yup.object().shape({
-### depois passo o schema para o resolver
-###        resolver: yupResolver(schema)
-### acrescentar no Component inputForm 
-### mudar o amount para numeric na interface FormData
+# começando a configuração da Navegação no App
+## criar routes/app.routes.tsx
+## no App 
+### fazer a importação
+## import { NavigationContainer} from '@react-navigation/native';
+## import { AppRoutes } from './src/routes/app.routes';
+### e uso no return()
+### e após essas configurações no App, parar e iniciar expo start
 
-# Solução para o campo amount(númerico) para o iPhone
-É só adicionar :
-.transform((_value, originalValue) => Number(originalValue.replace(/,/, '.')))
+# estilizando a tabs
+## Trabalhando no app.routes.tsx
+###        <Navigator
+###            screenOptions={{
+###    headerShown: false, desabilitar cabeçalho
+###    tabBarActiveTintColor = Cor do menu Ativo
+###    tabBarActiveTextColor = Cor do menu não Ativo
+###    tabBarLabelPosition: 'beside-icon' = icone ao lado
+                tabBarStyle: {
+                    height:88,
+                    paddingVertical:
+                }
+## import Platform
 
-assim:
-
-amount: Yup
-    .number()
-    .transform((_value, originalValue) => Number(originalValue.replace(/,/, '.')))
-    .typeError('Informe um valor numérico')
-    .positive('O valor não pode ser negativo')
-    .required('O valor é obrigatório')
-
-    
+### importar do styled-component o theme
+### import { MaterialIcons } from '@expo/vector-icons'
