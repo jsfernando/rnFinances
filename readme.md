@@ -38,3 +38,4 @@
 
 ### importar do styled-component o theme
 ### import { MaterialIcons } from '@expo/vector-icons'
+# rnFinances
