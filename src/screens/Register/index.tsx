@@ -6,7 +6,7 @@ import {
     Alert 
 } from 'react-native';
 
-import { useForm } from 'react-hook-form'
+import { Control, FieldValues, useForm } from 'react-hook-form'
 import * as Yup from 'yup';
 import { yupResolver }  from '@hookform/resolvers/yup';
 
@@ -32,13 +32,14 @@ interface FormData {
     name: string;
     amount: number;
 }
-
+// transform pra trocar , por . no caso do teclado numérico do iphone
 const schema = Yup.object().shape({
     name: Yup
     .string()
     .required('Nome é obrigatório'),
     amount: Yup
     .number()
+    .transform((_value, originalValue) => Number(originalValue.replace(/,/, '.')))
     .typeError('Informe um valor númerico')
     .positive('O valor não pode ser negativo')
     .required('O valor é obrigatório')
@@ -59,9 +60,12 @@ export function Register() {
         control,
         handleSubmit,
         formState: { errors }
-    } = useForm({
+    } = useForm<FormData>({
         resolver: yupResolver(schema)
     });
+
+    const formControll = control as unknown as Control<FieldValues, any>
+
 
     function handleOpenSelectCategoryModal(){
         setCategoryModalOpen(true);
@@ -101,7 +105,7 @@ export function Register() {
                 <Fields>
                     <InputForm 
                         name="name"
-                        control={control}
+                        control={formControll}
                         placeholder="Nome"
                         autoCapitalize='sentences' 
                         autoCorrect={false}
@@ -109,7 +113,7 @@ export function Register() {
                     />
                     <InputForm 
                         name="amount"
-                        control={control}
+                        control={formControll}
                         placeholder="Preço"
                         keyboardType='numeric' 
                         error={errors.amount && errors.amount.message}

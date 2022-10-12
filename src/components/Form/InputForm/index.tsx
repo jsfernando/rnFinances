@@ -10,6 +10,7 @@ import {
 interface Props extends TextInputProps{
     control: Control;
     name: string;
+    error?: string;
     
 }
 
