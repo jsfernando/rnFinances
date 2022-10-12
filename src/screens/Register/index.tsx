@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
     Keyboard, 
     Modal, 
@@ -6,13 +6,14 @@ import {
     Alert 
 } from 'react-native';
 
+
 import { Control, FieldValues, useForm } from 'react-hook-form'
 import * as Yup from 'yup';
 import { yupResolver }  from '@hookform/resolvers/yup';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {InputForm} from '../../components/Form/InputForm';
 
-import {Input} from '../../components/Form/Input';
 import {Button} from '../../components/Form/Button';
 import {TransactionTypeButton} from '../../components/Form/TransactionTypeButton';
 import {CategorySelectButton} from '../../components/Form/CategorySelectButton';
@@ -48,8 +49,8 @@ const schema = Yup.object().shape({
 export function Register() {
     const [transactionType, setTransactionType] = useState('');
     const [categoryModalOpen, setCategoryModalOpen] = useState(false);
-    // const [name, setName] = useState('');
-    // const [amount, setAmount] = useState('');
+
+    const dataKey = '@gofinances:transactions';
 
     const [category, setCategory] = useState({
         key: 'category',
@@ -78,7 +79,7 @@ export function Register() {
         setTransactionType(type)
     }
 
-    function handleRegister(form: FormData) {
+    async function handleRegister(form: FormData) {
         if (!transactionType) 
             return Alert.alert('Selecione o tipo da Transação')
 
@@ -91,8 +92,25 @@ export function Register() {
             transactionType,
             category: category.key
         }
-        console.log(data)
+
+        // console.log(data)
+        try {
+            await AsyncStorage.setItem(dataKey, JSON.stringify(data))
+        } catch (error) {
+            console.log(error)
+            Alert.alert("Não foi possivel salvar")
+        }
     }
+
+    useEffect(() => {
+        async function loadData(){
+            const data = await AsyncStorage.getItem(dataKey);
+            console.log(JSON.parse(data!)) // data! pode ser string | null  e assim dizemos que sempre terá algum valor
+        }
+
+        loadData();
+
+    },[])
 
 
     return (
