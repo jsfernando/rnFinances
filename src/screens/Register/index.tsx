@@ -96,6 +96,7 @@ export function Register() {
         // console.log(data)
         try {
             await AsyncStorage.setItem(dataKey, JSON.stringify(data))
+            // const currentData = data ? 
         } catch (error) {
             console.log(error)
             Alert.alert("Não foi possivel salvar")
