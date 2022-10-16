@@ -140,21 +140,21 @@ export function Register() {
         }
     }
 
-    useEffect(() => {
-        async function loadData(){
-            const data = await AsyncStorage.getItem(dataKey);
-            console.log(JSON.parse(data!)) // data! pode ser string | null  e assim dizemos que sempre terá algum valor
-        }
+    // useEffect(() => {
+    //     async function loadData(){
+    //         const data = await AsyncStorage.getItem(dataKey);
+    //         console.log(JSON.parse(data!)) // data! pode ser string | null  e assim dizemos que sempre terá algum valor
+    //     }
 
-        loadData();
+    //     loadData();
 
-        // Removendo a lista atual de transações
-        // async function removeAll(){
-        //     AsyncStorage.removeItem(dataKey);
-        // }
-        // removeAll();
+    //     // Removendo a lista atual de transações
+    //     // async function removeAll(){
+    //     //     AsyncStorage.removeItem(dataKey);
+    //     // }
+    //     // removeAll();
 
-    },[])
+    // },[])
 
 
     return (
