@@ -74,3 +74,12 @@ UUID [https://www.npmjs.com/package/react-native-uuid]
 
 # 5 transactionCard buscar o categories do utils
 ## lin 32 e 49,51
+
+# 6 useFocusEffect do useNavigation
+### dashboard.tsx
+## vai servir para quando incluir um lançamento voltar para lista e recarregar
+### https://reactnavigation.org/docs/use-focus-effect/
+
+# 7 no register.tsx corrigir typeTransaction de up | down para positive|negative
+# 8 no register.tsx corrigir newTransaction Formatted lin 107 type:transactionType
+# 9 invertendo a ordem do register para as ultimas transanções ficarem primeiro

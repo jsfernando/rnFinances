@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
+
+import { useFocusEffect } from '@react-navigation/native';
+
 import { HighlightCard } from '../../components/HighlightCard';
 import { TransactionCard, TransactionCardProps } from '../../components/TransactionCard';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 import { 
     Container,
@@ -41,8 +46,7 @@ export function Dashboard(){
         // setData(transactions);
         // console.log(transactions)
         
-        const transactionsFormatted: DataListProps[] = transactions
-        .map((item:DataListProps) => {
+        const transactionsFormatted: DataListProps[] = transactions.map((item:DataListProps) => {
             const amount = Number(item.amount)
             .toLocaleString('pt-BR', {
                 style: 'currency',
@@ -61,17 +65,28 @@ export function Dashboard(){
                 // category: item.category,
                 category: item.category,
                 date
-            }
-        })
+            };
+        });
 
         setData(transactionsFormatted);
+        console.log(transactionsFormatted)
 
     }
 
     useEffect(() =>{
         loadTransaction();
+        // limpar a lista
+        // const dataKey = '@gofinances:transactions';
+        // AsyncStorage.removeItem(dataKey);
+        
     },[])
     
+    useFocusEffect(
+        React.useCallback( () => {
+            loadTransaction();
+        },
+    []));
+
     return(
         <Container>
             <Header>
