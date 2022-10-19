@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-
+import { ActivityIndicator } from 'react-native'
 import { useFocusEffect } from '@react-navigation/native';
+import { useTheme } from 'styled-components';
 
 import { HighlightCard } from '../../components/HighlightCard';
 import { TransactionCard, TransactionCardProps } from '../../components/TransactionCard';
@@ -23,6 +24,7 @@ import {
     Title,
     TransactionList,
     LogoutButton,
+    LoadContainer,
 
 } from './styles';
 //9 e import lin3
@@ -42,9 +44,12 @@ interface HighlightData{
 }
 
 export function Dashboard(){
+    const [isLoading, setIsLoading] = useState(true);
     const [transactions, setTransactions] = useState<DataListProps[]>([]);
     const [highlightData, setHighlightData] = useState<HighlightData>({} as HighlightData);
 
+    const theme = useTheme();
+    
     async function loadTransaction(){
         const dataKey = '@gofinances:transactions';
         const response = await AsyncStorage.getItem(dataKey);
@@ -107,8 +112,7 @@ export function Dashboard(){
                 })
             },
         })
-        // console.log(transactionsFormatted)
-
+        setIsLoading(false);
     }
 
     useEffect(() =>{
@@ -127,59 +131,70 @@ export function Dashboard(){
 
     return(
         <Container>
-            <Header>
-                <UserWrapper>
-                    <UserInfo>
-                        <Photo 
-                            source={ {uri: 'https://avatars.githubusercontent.com/u/3800865?v=4'} }
+            { 
+                isLoading ? 
+                    <LoadContainer>
+                         <ActivityIndicator 
+                            color={theme.colors.primary} 
+                            size="large"
                         />
-                        <User>
-                            <UserGreething>Olá,</UserGreething>
-                            <UserName>Fernando</UserName>
-                        </User>
-                    </UserInfo>
-                    <LogoutButton onPress={() =>{}}>
-                        <Icon name="power" />
-                    </LogoutButton>
-                </UserWrapper>
-            </Header>
-            <HighlightCards>
-                {/* 3 passando as props do cartão sem o type ainda*/}
-                {/* 4 incluir o type=' e mostrar o intelissence  */}
-                <HighlightCard 
-                    type='up'
-                    title='Entradas' 
-                    amount={highlightData?.entries?.amount} 
-                    lastTransaction='Última entrada dia 13 de abril'
-                />
-                <HighlightCard 
-                    type='down' 
-                    title='Saídas' 
-                    amount={highlightData?.expensives?.amount}
-                    lastTransaction='Última saída dia 03 de abril'
-                />
-                <HighlightCard 
-                    type='total' 
-                    title='Total' 
-                    amount={highlightData?.total?.amount}
-                    lastTransaction='Última entrada dia 13 de abril'
-                />
-            </HighlightCards>
-            <Transactions>
-                <Title>Listagem</Title>
-                {/* <TransactionCard 
-                    data = {data[0]}
-                /> */}
+                    </LoadContainer> 
+                :
+            <>
+                <Header>
+                    <UserWrapper>
+                        <UserInfo>
+                            <Photo 
+                                source={ {uri: 'https://avatars.githubusercontent.com/u/3800865?v=4'} }
+                            />
+                            <User>
+                                <UserGreething>Olá,</UserGreething>
+                                <UserName>Fernando</UserName>
+                            </User>
+                        </UserInfo>
+                        <LogoutButton onPress={() =>{}}>
+                            <Icon name="power" />
+                        </LogoutButton>
+                    </UserWrapper>
+                </Header>
+                <HighlightCards>
+                    {/* 3 passando as props do cartão sem o type ainda*/}
+                    {/* 4 incluir o type=' e mostrar o intelissence  */}
+                    <HighlightCard 
+                        type='up'
+                        title='Entradas' 
+                        amount={highlightData?.entries?.amount} 
+                        lastTransaction='Última entrada dia 13 de abril'
+                    />
+                    <HighlightCard 
+                        type='down' 
+                        title='Saídas' 
+                        amount={highlightData?.expensives?.amount}
+                        lastTransaction='Última saída dia 03 de abril'
+                    />
+                    <HighlightCard 
+                        type='total' 
+                        title='Total' 
+                        amount={highlightData?.total?.amount}
+                        lastTransaction='Última entrada dia 13 de abril'
+                    />
+                </HighlightCards>
+                <Transactions>
+                    <Title>Listagem</Title>
+                    {/* <TransactionCard 
+                        data = {data[0]}
+                    /> */}
 
-                <TransactionList
-                    // colocar o mouse em cima do data
-                    data={transactions}
-                    //7
-                    keyExtractor={item => item.id}
-                    renderItem={({ item }) => <TransactionCard data={item} />}
-                />
-            </Transactions>
-
+                    <TransactionList
+                        // colocar o mouse em cima do data
+                        data={transactions}
+                        //7
+                        keyExtractor={item => item.id}
+                        renderItem={({ item }) => <TransactionCard data={item} />}
+                    />
+                </Transactions>
+            </>
+            }
         </Container>
     )
 }

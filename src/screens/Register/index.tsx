@@ -151,10 +151,10 @@ export function Register() {
     //     loadData();
 
     //     // Removendo a lista atual de transações
-    //     // async function removeAll(){
-    //     //     AsyncStorage.removeItem(dataKey);
-    //     // }
-    //     // removeAll();
+        // async function removeAll(){
+        //     AsyncStorage.removeItem(dataKey);
+        // }
+        // removeAll();
 
     // },[])
 
