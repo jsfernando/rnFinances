@@ -6,8 +6,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 const { Navigator, Screen}  = createBottomTabNavigator();
 
-import { Register } from '../screens/Register';
 import { Dashboard } from '../screens/Dashboard/Dashboard';
+import { Register } from '../screens/Register';
+import { Resume } from '../screens/Resume';
 
 export function AppRoutes(){
     const theme = useTheme();
@@ -53,7 +54,7 @@ export function AppRoutes(){
             />
             <Screen 
                 name="Resumo"
-                component={Register}
+                component={Resume}
                 options={{
                     tabBarIcon: (( {size, color}) =>
                      <MaterialIcons 
