@@ -26,3 +26,8 @@ export const Content = styled.ScrollView.attrs({
 })`
     /* background: red; somente pra olhar ocupando a tela toda */
 `;
+
+export const ChartContainer = styled.View`
+    width: 100%;
+    align-items: center;
+`;

@@ -1,16 +1,37 @@
-# 1
-# Iniciamos a tela Screem/Resume
-### utilizamos o cabeçalho da Register no styles.ts (Container, Header, Title, ...)
-### alteramos o app.routes.tsx para incluir a Tela Resume
-## criando o Component HistoryCard
-### criando uma interface para HistoryCard
-## no styles.tsx criado uma interface ContainerProps para cor
 
-# 2 tornar a listagem de categorias dinâmica
-##    async function loadData(){
-## criando a interface TransactionCard { para tipar no filtro
-### 2 foreach, o 1º percorrendo as categorias de utils/categories e o 2º percorrendo o filtro de expensives e somando...
-### 3   const totalByCategory = []; criando um vertor auxiliar pra agrupar por categoria
-### 4 criando um estado setTotalsByCategories
-#### 5 por fim incluir a color na interface e incluir no push e no HistoryCard
-### criando um Content para envolver o HistoryCard
+# 1 victorypie react native - gráfico de pizza
+[https://formidable.com/open-source/victory/docs/victory-pie/]
+[https://formidable.com/open-source/victory/docs/native]
+## npm install victory-native
+## import { VictoryPie } from 'victory-native';
+### <VictoryPie /> dentro do Content que é nossa scrollView
+### antes de contruir o gráfico incluo mais um total no CategoryData
+###    totalFormatted: string;
+#### trocar 
+            if (categorySum > 0){
+                const totalFormatted = categorySum
+
+            totalByCategory.push({
+                total: categorySum,
+                totalFormatted
+            <HistoryCard 
+                amount={item.totalFormatted}
+## instalar 
+# npm install --save react-native-svg
+## expo doctor --fix-dependencies
+##    "react-native-svg": "12.3.0",
+##    "victory-native": "^36.6.8",
+### gráfico ficou meio para o lado, ChartContainer para centralizar
+## calcular o percentual de cada categoria
+### expensivesTotal com reduce
+###        console.log(expensivesTotal);
+
+## criar um percent pra descobrir o percentual de cada total
+### percent inserindo no push, inserindo na interface e trocando o name do grafico, por percent
+## acrescentar cor e o percentual deve estar dentro do gráfico
+## colorScale
+## style=={{labels}}
+## labelRadius pra ficar 50% do eixo de dentro pra fora
+## import useTheme do styled-components and lin38
+
+
