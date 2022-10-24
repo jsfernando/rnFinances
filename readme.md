@@ -34,4 +34,9 @@
 ## labelRadius pra ficar 50% do eixo de dentro pra fora
 ## import useTheme do styled-components and lin38
 
+# branch 20
+## començando a corrigir a lista ScrollView do rodapé pra conseguir rolar a lista
+# import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+### tirar o attrs da scrollView no styled-components lin24
+
 

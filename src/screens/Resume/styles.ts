@@ -21,9 +21,7 @@ export const Title = styled.Text`
     color: ${({ theme }) => theme.colors.shape};
 `;
 
-export const Content = styled.ScrollView.attrs({
-    contentContainerStyle:{ flex:1, padding:24 }
-})`
+export const Content = styled.ScrollView`
     /* background: red; somente pra olhar ocupando a tela toda */
 `;
 

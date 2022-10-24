@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { VictoryPie } from 'victory-native';
 import { RFValue } from 'react-native-responsive-fontsize';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
 import { useTheme } from 'styled-components';
 
@@ -104,7 +105,13 @@ export function Resume() {
             </Header>
 
             {/* <Content contentContainerStyle={{padding:24}}> */}
-            <Content>
+            <Content
+                showsVerticalScrollIndicator={false}
+                contentContainterStyle={{
+                    padding:24,
+                    paddingBottom: useBottomTabBarHeight(),
+                }}
+            >
                 <ChartContainer>
 
                     <VictoryPie 
@@ -123,17 +130,23 @@ export function Resume() {
                     />
 
                 </ChartContainer>
-                { totalsByCategories.map(item => (
-                    
-                    <HistoryCard 
-                        key= {item.key}
-                        title={item.name}
-                        amount={item.totalFormatted}
-                        color={item.color}
-                    />
-                    
+                { 
+                    // [1, 2, 3, 4, 5, 6, 7, 8, 9].map(item => (
+                    //     <HistoryCard 
+                    //         key= "{item.key}"
+                    //         title="{item.name}"
+                    //         amount="{item.totalFormatted}"
+                    //         color="{item.color}"
+                    //     />
+                    // ))
+                    totalsByCategories.map(item => (
+                        <HistoryCard 
+                            key= {item.key}
+                            title={item.name}
+                            amount={item.totalFormatted}
+                            color={item.color}
+                        />
                     ))
-                    
                 }
             </Content>
 
