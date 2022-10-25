@@ -8,3 +8,19 @@
 ##    MonthSelectIcon,
 ##    Month,
 
+# 2 criar um estado para armazenar a data, mesmo que o interesse seja mes/ano
+##    const [selectedDate, setSelectedDate] = useState(new Date());
+## date-fns
+## npm install date-fns
+[https://date-fns.org/docs/Getting-Started#installation]
+[https://date-fns.org/v2.29.3/docs/addMonths]
+###    function handleDateChange(action: 'next' | 'prev'){
+### import { addMonths, subMonths, format } from 'date-fns';
+# 3 formatar o month, importar 
+### import { ptBR } from 'date-fns/locale'
+###                    <Month>
+###                        { format(selectedDate, 'MMMM, yyyy', {locale: ptBR} ) }
+###                    </Month>
+
+# 4 refletir a mudança do mês nos dados do resumo/gráfico
+##
