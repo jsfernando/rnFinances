@@ -108,7 +108,6 @@ export function Resume() {
             <Content
                 showsVerticalScrollIndicator={false}
                 contentContainterStyle={{
-                    padding:24,
                     paddingBottom: useBottomTabBarHeight(),
                 }}
             >
