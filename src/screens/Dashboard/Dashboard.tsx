@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { ActivityIndicator } from 'react-native'
 import { useFocusEffect } from '@react-navigation/native';
 import { useTheme } from 'styled-components';
@@ -175,7 +175,7 @@ export function Dashboard(){
     },[])
     
     useFocusEffect(
-        React.useCallback( () => {
+        useCallback( () => {
             loadTransaction();
         },
     []));

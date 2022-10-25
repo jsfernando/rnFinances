@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
+import { useFocusEffect } from '@react-navigation/native';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { VictoryPie } from 'victory-native';
 import { RFValue } from 'react-native-responsive-fontsize';
@@ -13,6 +15,11 @@ import {
     Title,
     Content,
     ChartContainer,
+    MonthSelect,
+    MonthSelectButton,
+    MonthSelectIcon,
+    Month,
+
 } from './styles';
 import { categories } from '../../utils/categories';
 
@@ -98,6 +105,13 @@ export function Resume() {
 
     },[])
 
+    useFocusEffect(
+        useCallback( () => {
+            loadData();
+        },
+    []));
+
+
     return (
         <Container>
             <Header>
@@ -111,6 +125,19 @@ export function Resume() {
                     paddingBottom: useBottomTabBarHeight(),
                 }}
             >
+
+                <MonthSelect>
+                    <MonthSelectButton>
+                        <MonthSelectIcon name="chevron-left"/>
+                    </MonthSelectButton>
+
+                    <Month>Maio</Month>
+
+                    <MonthSelectButton>
+                        <MonthSelectIcon name="chevron-right"/>
+                    </MonthSelectButton>
+                </MonthSelect>
+
                 <ChartContainer>
 
                     <VictoryPie 
