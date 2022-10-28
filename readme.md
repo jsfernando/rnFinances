@@ -14,6 +14,12 @@
 ## npm install date-fns
 [https://date-fns.org/docs/Getting-Started#installation]
 [https://date-fns.org/v2.29.3/docs/addMonths]
+### movendo as datas 
+### next
+###            setSelectedDate(addMonths(selectedDate, 1));
+### prev 
+###            setSelectedDate(subMonths(selectedDate, 1));
+
 ###    function handleDateChange(action: 'next' | 'prev'){
 ### import { addMonths, subMonths, format } from 'date-fns';
 # 3 formatar o month, importar 
@@ -23,4 +29,4 @@
 ###                    </Month>
 
 # 4 refletir a mudança do mês nos dados do resumo/gráfico
-##
+## chamar o selectedDate junto com o useFocusEffect/useEffect

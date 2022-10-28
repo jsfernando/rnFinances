@@ -71,6 +71,8 @@ export function Resume() {
         const response = await AsyncStorage.getItem(dataKey);
         const responseFormatted = response ? JSON.parse(response) : [];
 
+        // filtro baseado somente nas transações negativas
+        // incluir a data no filtro
         const expensives = responseFormatted
         .filter((expensive:TransactionData) => 
             expensive.type === 'negative' &&
