@@ -20,6 +20,7 @@ interface Category{
 }
 interface Props{
     category: Category;
+    // estado
     setCategory: (category: Category) => void;
     closeSelectCategory: () => void;
 }

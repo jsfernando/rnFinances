@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { Feather } from '@expo/vector-icons';
+import { TouchableOpacity } from 'react-native';
 
 
 // caso não funcione o botão de fechar o modal
@@ -42,9 +43,9 @@ export const Category = styled.TouchableOpacity<CategoryProps>`
     
     flex-direction: row;
     align-items: center;
-    //33
+    background-color: ${({ theme, isActive  }) => 
+        isActive ? theme.colors.secondary_light : theme.colors.background}
 `;
-/* background-color: ${({ isActive }) => isActive ? theme.colors.secondary_light : theme.colors.background} */
 
 export const Icon = styled(Feather)`
     font-size: ${RFValue(20)}px;
