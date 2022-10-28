@@ -1,32 +1,17 @@
-# 0 usar o useFocus que usamos no dashboard para atualizar o resume/gráfico
-## import { useFocusEffect } from '@react-navigation/native';
-## lin 103
-# 1 estilização do filtro por mês
-# Criando o estilo do mês com seta previous, next
-##    MonthSelect,
-##    MonthSelectButton,
-##    MonthSelectIcon,
-##    Month,
+# 1 desnecessário o useEffect e useFocusEffect
+## deixar somente o useFocusEffect
+# 2 criando o loading para o Gráfico carregar e na mudança de data
+## criando o stado isLoading
+###    const [isLoading, setIsLoading] = useState(true)
+### aproveitar o que foi feito no Dashboard e copiar isLoading
+### incluir 
+## import { ActivityIndicator } from 'react-native'
+## LoadContainer, trazer tbém do styles da dashboard
+## incluir lin 143 a 151 e fechar 210
+## isLoading começa como false
+## carrega como true no inicio do loadData() quando começar carregar os dados .. 
+## e no final quando carregar todos os dados antes o useFocusEffect
+## setIsLoading(false);
 
-# 2 criar um estado para armazenar a data, mesmo que o interesse seja mes/ano
-##    const [selectedDate, setSelectedDate] = useState(new Date());
-## date-fns
-## npm install date-fns
-[https://date-fns.org/docs/Getting-Started#installation]
-[https://date-fns.org/v2.29.3/docs/addMonths]
-### movendo as datas 
-### next
-###            setSelectedDate(addMonths(selectedDate, 1));
-### prev 
-###            setSelectedDate(subMonths(selectedDate, 1));
+# 4 statusbar no App.tsx
 
-###    function handleDateChange(action: 'next' | 'prev'){
-### import { addMonths, subMonths, format } from 'date-fns';
-# 3 formatar o month, importar 
-### import { ptBR } from 'date-fns/locale'
-###                    <Month>
-###                        { format(selectedDate, 'MMMM, yyyy', {locale: ptBR} ) }
-###                    </Month>
-
-# 4 refletir a mudança do mês nos dados do resumo/gráfico
-## chamar o selectedDate junto com o useFocusEffect/useEffect
