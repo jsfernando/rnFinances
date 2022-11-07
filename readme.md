@@ -1,17 +1,15 @@
-# 1 desnecessário o useEffect e useFocusEffect
-## deixar somente o useFocusEffect
-# 2 criando o loading para o Gráfico carregar e na mudança de data
-## criando o stado isLoading
-###    const [isLoading, setIsLoading] = useState(true)
-### aproveitar o que foi feito no Dashboard e copiar isLoading
-### incluir 
-## import { ActivityIndicator } from 'react-native'
-## LoadContainer, trazer tbém do styles da dashboard
-## incluir lin 143 a 151 e fechar 210
-## isLoading começa como false
-## carrega como true no inicio do loadData() quando começar carregar os dados .. 
-## e no final quando carregar todos os dados antes o useFocusEffect
-## setIsLoading(false);
-
-# 4 statusbar no App.tsx
+# 1
+## Criando a pasta @types/svg/index.d.ts
+## para lidar com os arquivos importados do tipo svg na pasta assets
+# declare module "*.svg" {
+##    import React from "react";
+##    import { SvgProps } from "react-native-svg";
+##    const content: Reac.FC<SvgProps>
+##    export default content;
+## }
+# 2 exportar icones da google e apple e logo do figma e colocar na pasta assets
+# 3 importar uma bibliteca para usar svg como components
+[https://github.com/kristerkari/react-native-svg-transformer]
+## npm install react-native-svg-transformer
+## configurar o arquivo metro.config.js, conforme documentação
 
