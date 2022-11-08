@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import { useFocusEffect } from '@react-navigation/native';
 import { ActivityIndicator } from 'react-native'
+import { LoadingAnimation } from '../../components/LoadingAnimation';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { VictoryPie } from 'victory-native';
 import { RFValue } from 'react-native-responsive-fontsize';
@@ -145,10 +147,11 @@ export function Resume() {
             { 
                 isLoading ? 
                 <LoadContainer>
-                         <ActivityIndicator 
-                            color={theme.colors.primary} 
-                            size="large"
-                            />
+                    {/* <LoadingAnimation /> */}
+                    <ActivityIndicator 
+                    color={theme.colors.primary} 
+                    size="large"
+                    />
                 </LoadContainer> 
                 :
                 <Content

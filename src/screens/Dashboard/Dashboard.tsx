@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { ActivityIndicator } from 'react-native'
+import { LoadingAnimation } from '../../components/LoadingAnimation';
+
 import { useFocusEffect } from '@react-navigation/native';
 import { useTheme } from 'styled-components';
 
@@ -185,6 +187,7 @@ export function Dashboard(){
             { 
                 isLoading ? 
                     <LoadContainer>
+                        {/* <LoadingAnimation /> */}
                          <ActivityIndicator 
                             color={theme.colors.primary} 
                             size="large"
