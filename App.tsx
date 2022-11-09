@@ -6,6 +6,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import 'intl';
 import 'intl/locale-data/jsonp/pt-BR';
 
+import { SignIn } from './src/screens/SignIn';
 
 import {
   useFonts,
@@ -35,7 +36,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <NavigationContainer>
         <StatusBar barStyle="light-content"/>
-        <AppRoutes />
+        <SignIn />
       </NavigationContainer>
     </ThemeProvider>
   ) 
