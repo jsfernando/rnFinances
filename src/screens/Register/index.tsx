@@ -112,6 +112,7 @@ export function Register() {
 
         // console.log(data)
         try {
+            //2.1
             const data = await AsyncStorage.getItem(dataKey);
             const currentData = data ? JSON.parse(data) : [];
 
@@ -121,7 +122,7 @@ export function Register() {
             ]
             // 1ª etapa
             // await AsyncStorage.setItem(dataKey, JSON.stringify(data))
-            // 2ª etapa
+            // 2.2 etapa
             await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormated))
 
             // resetando o formulario apos inserido novo lançamento
@@ -139,7 +140,7 @@ export function Register() {
             Alert.alert("Não foi possivel salvar")
         }
     }
-
+    //1.1
     useEffect(() => {
         async function loadData(){
             const data = await AsyncStorage.getItem(dataKey);
