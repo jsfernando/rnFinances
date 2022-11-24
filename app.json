@@ -8,6 +8,14 @@
     ],
     "android": {
       "package": "rnfinances.com"
+    },
+    "ios": {
+      "bundleIdentifier": "rnfinances.com"
+    },
+    "splash": {
+      "image": "./assets/splash.png",
+      "backgroundColor": "#5636D3",
+      "resizeMode": "cover"
     }
   }
 }
